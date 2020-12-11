@@ -11,10 +11,10 @@ def canUnlockAll(boxes):
     """
     Determine if all boxes can be opened
 
-    Parameters:
+    Parameters
     - Box (list of ints): list with keys for boxes.
 
-    Return:
+    Return
      True if all boxes were opened, or False if not.
     """
     for key in range(1, len(boxes) - 1):
