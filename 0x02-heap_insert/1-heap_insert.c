@@ -4,9 +4,9 @@
  * heap_insert - Inserts a value into a Max Binary Heap
  *
  * @root: Double pointer to the root node of the Heap
- * 
+ *
  * @value: The value store in the node to be inserted
- * 
+ *
  * Return: A tree with max heap ordering
  */
 
@@ -29,7 +29,7 @@ heap_t *heap_insert(heap_t **root, int value)
 		parent = node;
 		/* Ignore duplicates */
 		if (node->n == value)
-			return node_swap(node);
+			return (node_swap(node));
 
 		/* Sort tree into BST formation */
 		if (value > node->n)
@@ -56,7 +56,7 @@ heap_t *heap_insert(heap_t **root, int value)
  * node_swap - Swaps current node with larger node
  *
  * @node: Pointer to current node
- * 
+ *
  * Return: A new node
  */
 
