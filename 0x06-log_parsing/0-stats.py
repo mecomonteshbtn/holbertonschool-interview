@@ -22,11 +22,11 @@ try:
         file_size += eval(splited[-1])
         if i % 10 == 0:
             print("File size: {}".format(file_size))
-            for key, value in status_codes.items():
+            for key, value in sorted(status_codes.items()):
                 if value > 0:
                     print("{}: {}".format(key, value))
 finally:
     print("File size: {}".format(file_size))
-    for key, value in status_codes.items():
+    for key, value in sorted(status_codes.items()):
         if value > 0:
             print("{}: {}".format(key, value))
