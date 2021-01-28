@@ -1,31 +1,26 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Dec  11 8:24:21 2020
 
-@author: Robinson Montes
-"""
 import sys
 
 file_size = 0
-status_codes = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0, "404": 0,
-                "405": 0, "500": 0}
+status_codes = {"200": 0, "301": 0, "400": 0, "401": 0,
+                "403": 0, "404": 0, "405": 0, "500": 0}
 
 try:
     for i, line in enumerate(sys.stdin, 1):
-        split_args = line.split(" ")
-        if len(split_args) < 2:
+        splited = line.split(" ")
+        if len(splited) < 2:
             continue
-        if split_args[-2] in status_codes:
-            status_codes[split_args[-2]] += 1
-        file_size += eval(split_args[-1])
+        if splited[-2] in status_codes:
+            status_codes[splited[-2]] += 1
+        file_size += eval(splited[-1])
         if i % 10 == 0:
             print("File size: {}".format(file_size))
-            for key, value in status_codes.items:
+            for key,value in status_codes.items():
                 if value > 0:
                     print("{}: {}".format(key, value))
 finally:
     print("File size: {}".format(file_size))
-    for key, value in status_codes.items:
+    for key,value in status_codes.items():
         if value > 0:
             print("{}: {}".format(key, value))
