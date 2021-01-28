@@ -1,5 +1,10 @@
 #!/usr/bin/python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jan 28 15:54:21 2021
 
+@author: Robinson Montes
+"""
 import sys
 
 file_size = 0
