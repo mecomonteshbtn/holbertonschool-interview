@@ -7,32 +7,25 @@ Created on Fri Dec  11 8:24:21 2020
 """
 import sys
 
-
-total_size = 0
-count = 0
-status_codes = {'200': 0, '301': 0, '400': 0, '401': 0, '403': 0, '404': 0,
-               '405': 0, '500': 0}
+file_size = 0
+status_codes = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0, "404": 0,
+                "405": 0, "500": 0}
 
 try:
-    for line in sys.stdin:
-        words = line.split(" ")
-        if len(words) > 2:
-            size = words[-1]
-            status = words[-2]
-            if status in status_codes:
-                status_codes[status] += 1
-            total_size += int(size)
-            count += 1
-        if count == 10:
-            print("File size: {:d}".format(total_size))
-            for k, v in status_codes.items:
-                if v != 0:
-                    print("{:}: {:d}".format(k, v))
-            count = 0
-except Exception:
-    pass
+    for i, line in enumerate(sys.stdin, 1):
+        split_args = line.split(" ")
+        if len(split_args) < 2:
+            continue
+        if split_args[-2] in status_codes:
+            status_codes[split_args[-2]] += 1
+        file_size += eval(split_args[-1])
+        if i % 10 == 0:
+            print("File size: {}".format(file_size))
+            for key, value in status_codes.items:
+                if value > 0:
+                    print("{}: {}".format(key, value))
 finally:
-    print("File size: {:d}".format(total_size))
-    for k, v in status_codes.items:
-        if v != 0:
-            print("{:}: {:d}".format(k, v))
+    print("File size: {}".format(file_size))
+    for key, value in status_codes.items:
+        if value > 0:
+            print("{}: {}".format(key, value))
