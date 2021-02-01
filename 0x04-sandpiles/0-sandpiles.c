@@ -60,21 +60,22 @@ static int check_sandpiles(int grid[3][3])
  */
 static void converting_into_sandpiles(int grid1[3][3])
 {
-	int i, j;
+	int i, j, count = 0;
 
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 3; j++)
 		{
+		        count++;
 			if (grid1[i][j] > 3)
 			{
 				grid1[i][j] = grid1[i][j] - 4;
 				if ((i - 1 >= 0) && (i - 1 < 3))
 					grid1[i - 1][j] += 1;
-				if ((j - 1 >= 0) && (j - 1 < 3))
-					grid1[i][j - 1] += 1;
 				if ((i + 1 >= 0) && (i + 1 < 3))
 					grid1[i + 1][j] += 1;
+				if ((j - 1 >= 0) && (j - 1 < 3))
+					grid1[i][j - 1] += 1;
 				if ((j + 1 >= 0) && (j + 1 < 3))
 					grid1[i][j + 1] += 1;
 			}
