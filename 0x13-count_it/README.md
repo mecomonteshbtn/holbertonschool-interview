@@ -60,7 +60,6 @@ bob@dylan $ python3 0-main.py not_a_valid_subreddit 'python java javascript scal
 bob@dylan $ python3 0-main.py not_a_valid_subreddit 'python java'
 bob@dylan $ 
 ```
-
 ---
 ## Authors
 
